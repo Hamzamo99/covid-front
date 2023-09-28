@@ -10,7 +10,6 @@ import { Centre } from '../centre.model';
 export class ListeDesCentresComponent implements OnInit {
 
   centres: Centre[] = [];
-  selectedCentre: Centre | null = null;
 
   constructor(private centreService: CentreService) { }
 

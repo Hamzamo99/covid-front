@@ -8,11 +8,12 @@ import { Centre } from './centre.model';
 })
 export class CentreService {
 
-  private apiUrl = '/superadmin/centres';
+  private apiUrl = '/api/superadmin/centres';
 
   constructor(private http: HttpClient) { }
 
   getAllCentres(): Observable<Centre[]> {
     return this.http.get<Centre[]>(this.apiUrl);
   }
+  
 }

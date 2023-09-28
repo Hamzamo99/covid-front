@@ -1,17 +1,10 @@
-<div>
-    <label for="centre-select">Sélectionnez un centre :</label>
-    <select id="centre-select" [(ngModel)]="selectedCentre">
-      <option *ngFor="let centre of centres" [value]="centre">
-        {{ centre.nom }}, {{ centre.adresse }}, {{ centre.ville }}
-      </option>
-    </select>
+<div class="container">
+  <div *ngFor="let centre of centres" class="centre-item">
+    <h3>{{ centre.nom }}</h3>
+    <p>Adresse: {{ centre.adresse }}</p>
+    <p>Ville: {{ centre.ville }}</p>
   </div>
-  
-  <div *ngIf="selectedCentre">
-    <h3>Centre sélectionné :</h3>
-    <p>Nom : {{ selectedCentre.nom }}</p>
-    <p>Adresse : {{ selectedCentre.adresse }}</p>
-    <p>Ville : {{ selectedCentre.ville }}</p>
-  </div>
+  <div *ngIf="centres.length === 0" class="empty-list">Aucun centre trouvé.</div>
+</div>
   
   
