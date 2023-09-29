@@ -1,0 +1,36 @@
+/* success-popup.component.css */
+
+.success-popup {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .success-popup h2 {
+    color: #007bff;
+    font-size: 16px;
+  }
+  
+  .success-popup p {
+    margin: 0;
+  }
+  
+  .success-popup button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .success-popup button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Si nécessaire, vous pouvez également définir des styles pour d'autres éléments du pop-up */
+  
+  

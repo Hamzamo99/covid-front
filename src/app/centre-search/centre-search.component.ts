@@ -11,6 +11,7 @@ import { Inscription } from '../inscription.model';
 
 export class CentreSearchComponent {
   ville: string = '';
+  successMessage: string | null = null; // Message de succès pour la pop-up
   nomCentre: string = '';
   centres: Centre[] = [];
   inscriptionFormVisible: boolean = false;
@@ -32,6 +33,14 @@ export class CentreSearchComponent {
       dateInscription: '',
       centre: { id: 0 }
       };
+    }
+
+  showSuccessPopup(message: string) {
+    this.successMessage = message;
+  }
+
+  closeSuccessPopup() {
+    this.successMessage = null;
     }
 
   searchCentres() {
@@ -64,12 +73,12 @@ export class CentreSearchComponent {
   }
   
   onSubmit() {
-    // Utilisez la méthode inscrireUtilisateur pour envoyer les données d'inscription
     this.centreService.inscrireUtilisateur(this.inscriptionData)
       .subscribe(
         (response) => {
           // Gérer la réponse de l'API (par exemple, afficher un message de succès)
           console.log('Inscription réussie !', response);
+          this.showSuccessPopup('L\'inscription s\'est bien passée !'); // Afficher la pop-up de succès
         },
         (error) => {
           // Gérer les erreurs (par exemple, afficher un message d'erreur)

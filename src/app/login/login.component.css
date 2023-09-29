@@ -1,0 +1,51 @@
+/* login.component.css */
+
+h2 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

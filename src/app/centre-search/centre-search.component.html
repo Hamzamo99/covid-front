@@ -39,4 +39,8 @@
   </form>
 </div>
 
+<div *ngIf="successMessage">
+  <app-success-popup [successMessage]="successMessage" (closePopup)="closeSuccessPopup()"></app-success-popup>
+</div>
+
   

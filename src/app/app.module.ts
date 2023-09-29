@@ -7,12 +7,16 @@ import { ListeDesCentresComponent } from './liste-des-centres/liste-des-centres.
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CentreSearchComponent } from './centre-search/centre-search.component';
+import { SuccessPopupComponent } from './success-popup/success-popup.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListeDesCentresComponent,
     CentreSearchComponent,
+    SuccessPopupComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

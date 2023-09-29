@@ -1,4 +1,14 @@
-<div>
-  <!-- <app-liste-des-centres></app-liste-des-centres> -->
-  <router-outlet></router-outlet>
+<!-- app.component.html -->
+
+<div class="navbar">
+  <ul>
+    <li *ngIf="!isLoggedIn"><a (click)="logout()">Logout</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/login">Login</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/public/centres">Accueil</a></li>
+  </ul>
 </div>
+
+<router-outlet></router-outlet>
+
+
+
