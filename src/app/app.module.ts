@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { ListeDesCentresComponent } from './liste-des-centres/liste-des-centres.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CentreSearchComponent } from './centre-search/centre-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListeDesCentresComponent
+    ListeDesCentresComponent,
+    CentreSearchComponent,
   ],
   imports: [
     BrowserModule,

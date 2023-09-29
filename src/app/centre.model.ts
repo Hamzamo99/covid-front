@@ -1,4 +1,5 @@
 export interface Centre {
+
     id?: number; 
     nom?: string;
     adresse?: string;
@@ -6,6 +7,7 @@ export interface Centre {
     inscriptions: any[];
     administrateurs: any[];
     medecins: any[];
+    
 }
   
   
