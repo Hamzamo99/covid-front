@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Liste des Administrateurs</h2>
+    <ul>
+      <li *ngFor="let admin of administrateurs">
+        <h3>{{ admin.nom }} {{ admin.prenom }}</h3>
+        <p>Email: {{ admin.email }}</p>
+        <p>Téléphone: {{ admin.telephone }}</p>
+      </li>
+    </ul>
+  </div>
+  

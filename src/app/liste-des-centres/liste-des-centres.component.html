@@ -25,6 +25,7 @@
   <p>Ville: {{ centre.ville }}</p>
   <button (click)="supprimerCentre(centre)">Supprimer</button>
   <button (click)="modifierCentre(centre)">Modifier</button>
+  <a [routerLink]="['/administrateurs', 'centre', centre.id]">Admins</a>
   
   <!-- Formulaire de modification (caché par défaut) -->
   <div *ngIf="centreEnModification === centre" class="centre-form">

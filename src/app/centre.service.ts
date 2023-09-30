@@ -3,16 +3,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Centre } from './centre.model';
 import { Inscription } from './inscription.model';
+import { Administrateur } from './administrateur.model'; // Importez le modèle d'administrateur
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class CentreService {
 
   private apiUrl = '/api/superadmin/centres';
   private baseUrl = '/api/public/centres';
-  private inscriptionUrl = '/api/public/inscriptions'; // URL pour l'inscription
+  private inscriptionUrl = '/api/public/inscriptions';
+  private adminUrl = '/api/superadmin/administrateurs'; // URL pour les administrateurs
 
   constructor(private http: HttpClient) { }
 
@@ -34,11 +35,17 @@ export class CentreService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<void>(url);
   }
-  
+
   modifierCentre(id: number, centre: Centre): Observable<Centre> {
     const url = `${this.apiUrl}/${id}`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put<Centre>(url, centre, { headers });
+  }
+
+  // Méthode pour obtenir les administrateurs par ID de centre
+  getAdminsByCentreId(centreId: number): Observable<Administrateur[]> {
+    const url = `${this.adminUrl}/centre/${centreId}`;
+    return this.http.get<Administrateur[]>(url);
   }
 
   // Méthode pour effectuer une inscription
@@ -47,4 +54,5 @@ export class CentreService {
     return this.http.post(this.inscriptionUrl, inscriptionData, { headers });
   }
 }
+
 
