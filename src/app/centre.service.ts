@@ -25,6 +25,22 @@ export class CentreService {
     return this.http.get<any[]>(url);
   }
 
+  creerCentre(nouveauCentre: Centre): Observable<Centre> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Centre>(this.apiUrl, nouveauCentre, { headers });
+  }
+
+  supprimerCentre(id: number): Observable<void> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
+  
+  modifierCentre(id: number, centre: Centre): Observable<Centre> {
+    const url = `${this.apiUrl}/${id}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put<Centre>(url, centre, { headers });
+  }
+
   // Méthode pour effectuer une inscription
   inscrireUtilisateur(inscriptionData: Inscription): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });

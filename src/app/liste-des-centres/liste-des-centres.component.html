@@ -1,8 +1,51 @@
 <div class="container">
-  <div *ngFor="let centre of centres" class="centre-item">
-    <h3>{{ centre.nom }}</h3>
-    <p>Adresse: {{ centre.adresse }}</p>
-    <p>Ville: {{ centre.ville }}</p>
+  <!-- Bouton pour afficher le formulaire de création de centre -->
+  <button (click)="afficherFormulaireCreation()">Créer un Nouveau Centre</button>
+  
+  <!-- Formulaire de création de centre (s'affiche si afficherFormulaire est vrai) -->
+  <div *ngIf="afficherFormulaire" class="centre-form">
+    <h3>Créer un Centre</h3>
+    <form (submit)="creerCentre()">
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" [(ngModel)]="nouveauCentre.nom" name="nom" required>
+
+      <label for="adresse">Adresse:</label>
+      <input type="text" id="adresse" [(ngModel)]="nouveauCentre.adresse" name="adresse" required>
+
+      <label for="ville">Ville:</label>
+      <input type="text" id="ville" [(ngModel)]="nouveauCentre.ville" name="ville" required>
+
+      <button type="submit">Créer</button>
+    </form>
   </div>
-  <div *ngIf="centres.length === 0" class="empty-list">Aucun centre trouvé.</div>
+
+<div *ngFor="let centre of centres" class="centre-item">
+  <h3>{{ centre.nom }}</h3>
+  <p>Adresse: {{ centre.adresse }}</p>
+  <p>Ville: {{ centre.ville }}</p>
+  <button (click)="supprimerCentre(centre)">Supprimer</button>
+  <button (click)="modifierCentre(centre)">Modifier</button>
+  
+  <!-- Formulaire de modification (caché par défaut) -->
+  <div *ngIf="centreEnModification === centre" class="centre-form">
+    <h3>Modifier le Centre</h3>
+    <form (submit)="soumettreModification()">
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" [(ngModel)]="nouveauCentre.nom" name="nom" required>
+
+      <label for="adresse">Adresse:</label>
+      <input type="text" id="adresse" [(ngModel)]="nouveauCentre.adresse" name="adresse" required>
+
+      <label for="ville">Ville:</label>
+      <input type="text" id="ville" [(ngModel)]="nouveauCentre.ville" name="ville" required>
+
+      <button type="submit">Enregistrer</button>
+    </form>
+  </div>
 </div>
+
+</div>
+
+
+
+
