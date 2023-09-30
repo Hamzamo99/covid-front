@@ -1,49 +1,65 @@
-/* administrateurs.component.css */
+/* admins-par-centre.component.css */
 
 /* Style pour le conteneur principal du composant */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Style pour la liste des administrateurs */
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  /* Style pour chaque élément de la liste des administrateurs */
-  li {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Style pour le titre */
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  /* Style pour le nom et le prénom */
-  h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-  }
-  
-  /* Style pour les informations d'administrateur */
-  p {
-    font-size: 1rem;
-    margin: 0;
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour le bouton "Créer un Nouveau Administrateur pour ce centre" */
+button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Style pour la liste des administrateurs */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style pour chaque élément de la liste des administrateurs */
+li {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour le titre */
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Style pour le nom et le prénom */
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* Style pour les informations d'administrateur */
+p {
+  font-size: 1rem;
+  margin: 0;
+}
+
   
