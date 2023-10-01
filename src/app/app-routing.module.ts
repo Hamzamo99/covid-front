@@ -4,6 +4,7 @@ import { ListeDesCentresComponent } from './liste-des-centres/liste-des-centres.
 import { CentreSearchComponent } from './centre-search/centre-search.component';
 import { LoginComponent } from './login/login.component';
 import { AdminsParCentreComponent } from './admins-par-centre/admins-par-centre.component';
+import { MedecinsParCentreComponent } from './medecins-par-centre/medecins-par-centre.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'public/centres',component: CentreSearchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'administrateurs/centre/:id', component: AdminsParCentreComponent },
+  { path: 'medecins/centre/:id', component: MedecinsParCentreComponent},
   { path: '', redirectTo: 'public/centres', pathMatch: 'full' },
 ];
 

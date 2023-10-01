@@ -4,6 +4,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { Centre } from './centre.model';
 import { Inscription } from './inscription.model';
 import { Administrateur } from './administrateur.model'; // Importez le modèle d'administrateur
+import { Medecin } from './medecin.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class CentreService {
   private baseUrl = '/api/public/centres';
   private inscriptionUrl = '/api/public/inscriptions';
   private adminUrl = '/api/superadmin/administrateurs'; // URL pour les administrateurs
+  private medecinUrl = 'api/admin/medecins';
 
   constructor(private http: HttpClient) { }
 
@@ -48,22 +50,54 @@ export class CentreService {
     return this.http.get<Administrateur[]>(url);
   }
 
+  getMedecinsByCentreId(centreId: number): Observable<Medecin[]> {
+    const url = `${this.medecinUrl}?centreId=${centreId}`;
+    return this.http.get<Medecin[]>(url);
+  }
+
   // Méthode pour effectuer une inscription
   inscrireUtilisateur(inscriptionData: Inscription): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post(this.inscriptionUrl, inscriptionData, { headers });
   }
-  // centre.service.ts
+
+  creerMedecin(nouvelMedecin: Medecin): Observable<Medecin> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Medecin>('/api/admin/medecins', nouvelMedecin, { headers });
+  }
 
   creerAdministrateur(nouvelAdministrateur: Administrateur): Observable<Administrateur> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<Administrateur>('/api/superadmin/administrateurs', nouvelAdministrateur, { headers });
   }
 
+  effacerMedecin(medecinId: number): Observable<void> {
+    const url = `${this.medecinUrl}/${medecinId}`; 
+    return this.http.delete<void>(url);
+  }
+
   effacerAdministrateur(adminId: number): Observable<void> {
     const url = `${this.adminUrl}/${adminId}`; // Utilisez this.adminUrl pour la route des administrateurs
     return this.http.delete<void>(url);
   }
+
+  modifierMedecin(id: number, medecinModifie: Medecin): Observable<Medecin> {
+    const url = `${this.medecinUrl}/${id}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  
+    // Assurez-vous que le champ 'centre' est un objet avec une propriété 'id'
+    medecinModifie.centre = { id: medecinModifie.centre.id };
+  
+    return this.http
+      .put<Administrateur>(url, medecinModifie, { headers })
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erreur lors de la modification du medecin :', error);
+          return throwError(error);
+        })
+      );
+  }
+  
 
   modifierAdministrateur(id: number, administrateurModifie: Administrateur): Observable<Administrateur> {
     const url = `${this.adminUrl}/${id}`;

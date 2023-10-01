@@ -10,6 +10,7 @@ import { CentreSearchComponent } from './centre-search/centre-search.component';
 import { SuccessPopupComponent } from './success-popup/success-popup.component';
 import { LoginComponent } from './login/login.component';
 import { AdminsParCentreComponent } from './admins-par-centre/admins-par-centre.component';
+import { MedecinsParCentreComponent } from './medecins-par-centre/medecins-par-centre.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AdminsParCentreComponent } from './admins-par-centre/admins-par-centre.
     SuccessPopupComponent,
     LoginComponent,
     AdminsParCentreComponent,
+    MedecinsParCentreComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,7 @@
   <button (click)="supprimerCentre(centre)">Supprimer</button>
   <button (click)="modifierCentre(centre)">Modifier</button>
   <a [routerLink]="['/administrateurs', 'centre', centre.id]">Admins</a>
+  <a [routerLink]="['/medecins', 'centre', centre.id]">Medecins</a>
   
   <!-- Formulaire de modification (caché par défaut) -->
   <div *ngIf="centreEnModification === centre" class="centre-form">
