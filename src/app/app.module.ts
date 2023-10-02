@@ -11,6 +11,7 @@ import { SuccessPopupComponent } from './success-popup/success-popup.component';
 import { LoginComponent } from './login/login.component';
 import { AdminsParCentreComponent } from './admins-par-centre/admins-par-centre.component';
 import { MedecinsParCentreComponent } from './medecins-par-centre/medecins-par-centre.component';
+import { ListeDesSuperAdminsComponent } from './liste-des-super-admins/liste-des-super-admins.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MedecinsParCentreComponent } from './medecins-par-centre/medecins-par-c
     LoginComponent,
     AdminsParCentreComponent,
     MedecinsParCentreComponent,
+    ListeDesSuperAdminsComponent,
   ],
   imports: [
     BrowserModule,

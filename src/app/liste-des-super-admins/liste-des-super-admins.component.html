@@ -1,0 +1,54 @@
+<div class="container">
+    <!-- Bouton pour afficher le formulaire de création de centre -->
+    <button (click)="afficherFormulaireCreation()">Créer un Nouveau Super Admin</button>
+
+    <!-- Formulaire de création de centre (s'affiche si afficherFormulaire est vrai) -->
+    <div *ngIf="afficherFormulaire" class="centre-form">
+      <h3>Créer un Super Admin</h3>
+      <form (submit)="creerSuperAdmin()">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" [(ngModel)]="nouveauSuperAdmin.nom" name="nom" required>
+  
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" [(ngModel)]="nouveauSuperAdmin.prenom" name="prenom" required>
+  
+        <label for="email">Email:</label>
+        <input type="text" id="email" [(ngModel)]="nouveauSuperAdmin.email" name="email" required>
+
+        <label for="telephone">Telephone:</label>
+        <input type="text" id="telephone" [(ngModel)]="nouveauSuperAdmin.telephone" name="telephone" required>
+  
+        <button type="submit">Créer</button>
+      </form>
+    </div>
+  
+  <div *ngFor="let superAdmin of superAdmins" class="centre-item">
+    <h3>{{ superAdmin.nom }}</h3>
+    <p>Adresse: {{ superAdmin.prenom }}</p>
+    <p>Ville: {{ superAdmin.email }}</p>
+    <button (click)="supprimerSuperAdmin(superAdmin)">Supprimer</button>
+    <button (click)="modifierSuperAdmin(superAdmin)">Modifier</button>
+    
+    <!-- Formulaire de modification (caché par défaut) -->
+    <div *ngIf="superAdminEnModification === superAdmin" class="centre-form">
+      <h3>Modifier le Super Admin</h3>
+      <form (submit)="soumettreModification()">
+        
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" [(ngModel)]="nouveauSuperAdmin.nom" name="nom" required>
+  
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" [(ngModel)]="nouveauSuperAdmin.prenom" name="prenom" required>
+  
+        <label for="email">Email:</label>
+        <input type="text" id="email" [(ngModel)]="nouveauSuperAdmin.email" name="email" required>
+
+        <label for="telephone">Telephone:</label>
+        <input type="text" id="telephone" [(ngModel)]="nouveauSuperAdmin.telephone" name="telephone" required>
+  
+        <button type="submit">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+  
+  </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <!-- Bouton pour afficher le formulaire de création de centre -->
   <button (click)="afficherFormulaireCreation()">Créer un Nouveau Centre</button>
-  
+  <button [routerLink]="['/superadmins']">Gérer les Super Admins</button> 
   <!-- Formulaire de création de centre (s'affiche si afficherFormulaire est vrai) -->
   <div *ngIf="afficherFormulaire" class="centre-form">
     <h3>Créer un Centre</h3>

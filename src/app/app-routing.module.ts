@@ -5,10 +5,12 @@ import { CentreSearchComponent } from './centre-search/centre-search.component';
 import { LoginComponent } from './login/login.component';
 import { AdminsParCentreComponent } from './admins-par-centre/admins-par-centre.component';
 import { MedecinsParCentreComponent } from './medecins-par-centre/medecins-par-centre.component';
+import { ListeDesSuperAdminsComponent } from './liste-des-super-admins/liste-des-super-admins.component';
 
 
 const routes: Routes = [
   { path: 'superadmin/centres',component: ListeDesCentresComponent },
+  { path: 'superadmins', component: ListeDesSuperAdminsComponent },
   { path: 'public/centres',component: CentreSearchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'administrateurs/centre/:id', component: AdminsParCentreComponent },
