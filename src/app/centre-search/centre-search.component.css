@@ -1,93 +1,51 @@
-/* centre-search.component.css */
-
-/* Style de la barre de recherche */
-input[type="text"] {
-  padding: 6px;
-  width: 180px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-right: 6px;
-  font-size: 14px;
+/* Styles pour les conteneurs principaux */
+.mat-form-container, .mat-results-container, .mat-inscription-container {
+  margin: 30px auto; /* Centrez les conteneurs et réduisez la marge extérieure */
+  padding: 20px;
+  max-width: 700px; /* Réduisez la largeur maximale */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-button {
-  padding: 6px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-/* Style de la liste des résultats */
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 6px;
-  padding: 6px;
-  font-size: 14px;
-}
-
-h3 {
-  color: #007bff;
-  font-size: 16px;
-}
-
-/* Style du conteneur principal */
-.container {
+/* Styles pour les boutons Material */
+mat-raised-button {
   margin-top: 10px;
 }
 
-/* Style du formulaire d'inscription */
-.inscription-form {
-  background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 14px;
+/* Styles pour les titres */
+h2 {
+  margin-top: 0;
 }
 
-label {
-  font-weight: bold;
-  font-size: 14px;
-}
-
-input[type="text"], input[type="email"], input[type="date"] {
+/* Styles pour les formulaires Material */
+mat-form-field {
   width: 100%;
-  padding: 6px;
-  margin: 4px 0;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 14px;
 }
 
-input[type="hidden"] {
-  display: none;
+/* Styles pour les messages d'erreur (le cas échéant) */
+.mat-error {
+  color: #f44336; /* Couleur de l'erreur */
 }
 
-.inscription-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-size: 14px;
+/* Styles pour les messages de succès (le cas échéant) */
+.success-message {
+  color: #4CAF50; /* Couleur du succès */
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-.inscription-button:hover {
-  background-color: #0056b3;
+/* Styles pour les boutons Material à l'intérieur de la liste */
+mat-list-item button.mat-raised-button {
+  visibility: visible; /* Assurez-vous que les boutons sont visibles */
 }
 
-.error-message {
-  color: #f00;
-  font-size: 12px;
-  margin-top: 4px;
+/* CSS pour afficher le texte du nom du centre */
+.mat-list-item .mat-list-text {
+  display: inline; /* Force l'affichage en ligne du texte */
+  margin-right: 10px; /* Ajuste la marge à droite pour l'espacement */
 }
+
+
 

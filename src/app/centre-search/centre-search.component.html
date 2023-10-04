@@ -1,46 +1,57 @@
-<div>
-  <input type="text" [(ngModel)]="ville" placeholder="Entrez le nom de la ville">
-  <button (click)="searchCentres()">Rechercher</button>
+<!-- Utilisation de MatInput pour le champ de recherche -->
+<div class="mat-form-container">
+  <h2>Entrez le nom d'une ville pour rechercher un centre :</h2>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="ville" placeholder="Entrez le nom de la ville">
+  </mat-form-field>
+  <!-- Utilisation de MatButton pour le bouton de recherche -->
+  <button mat-raised-button color="primary" (click)="searchCentres()">Rechercher</button>
 </div>
-
-<div *ngIf="centres">
+<div *ngIf="centres" class="mat-results-container">
   <h2>Résultats pour la ville {{ ville }} :</h2>
-  <ul>
-    <li *ngFor="let centre of centres">
-      <h3>{{ centre.nom }}</h3>
+  <!-- Utilisation de MatList pour la liste de résultats -->
+  <div class="centre-list" *ngFor="let centre of centres">
+    <!-- Utilisation de MatListItemText pour les détails du centre -->
+    <div class="centre-details">
+      <h3 class="mat-list-text">{{ centre.nom }}</h3>
       <p>{{ centre.adresse }}</p>
-      <button (click)="choisirCentre(centre)">Choisir</button>
-    </li>
-  </ul>
+    </div>
+    <div class="centre-button">
+      <button mat-raised-button color="primary" (click)="choisirCentre(centre)">Choisir</button>
+    </div>
+  </div>
 </div>
 
-<div *ngIf="inscriptionFormVisible">
+<div *ngIf="inscriptionFormVisible" class="mat-inscription-container">
   <h2>Formulaire d'inscription pour le centre {{ nomCentre }} :</h2>
+  <!-- Utilisation de MatForm pour le formulaire d'inscription -->
   <form (submit)="onSubmit()">
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" [(ngModel)]="inscriptionData.nom" name="nom" required>
-
-    <label for="prenom">Prénom :</label>
-    <input type="text" id="prenom" [(ngModel)]="inscriptionData.prenom" name="prenom" required>
-
-    <label for="email">Email :</label>
-    <input type="email" id="email" [(ngModel)]="inscriptionData.email" name="email" required>
-
-    <label for="telephone">Téléphone :</label>
-    <input type="text" id="telephone" [(ngModel)]="inscriptionData.telephone" name="telephone" required>
-
-    <label for="dateInscription">Date d'inscription :</label>
-    <input type="date" id="dateInscription" [(ngModel)]="inscriptionData.dateInscription" name="dateInscription" required>
-
+    <mat-form-field>
+      <input matInput type="text" id="nom" [(ngModel)]="inscriptionData.nom" name="nom" required placeholder="Nom">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" id="prenom" [(ngModel)]="inscriptionData.prenom" name="prenom" required placeholder="Prénom">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="email" id="email" [(ngModel)]="inscriptionData.email" name="email" required placeholder="Email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" id="telephone" [(ngModel)]="inscriptionData.telephone" name="telephone" required placeholder="Téléphone">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="inscriptionData.dateInscription" name="date" required placeholder="Date d'inscription">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>    
     <!-- Champ masqué pour l'ID du centre -->
     <input type="hidden" [(ngModel)]="inscriptionData.centre!.id" name="centreId">
-
-    <button type="submit">Envoyer</button>
+    <!-- Utilisation de MatButton pour le bouton Envoyer -->
+    <button mat-raised-button color="primary" type="submit">Envoyer</button>
   </form>
 </div>
 
 <div *ngIf="successMessage">
-  <app-success-popup [successMessage]="successMessage" (closePopup)="closeSuccessPopup()"></app-success-popup>
+  <app-success-popup [successMessage]="successMessage"></app-success-popup>
 </div>
 
-  
+

@@ -1,31 +1,42 @@
-/* app.component.css */
+/* Ajoutez ces styles dans votre fichier CSS global ou dans le fichier CSS spécifique de votre composant */
+.logo-container {
+  cursor: pointer;
+  display: flex; /* Utilisez flexbox pour aligner les éléments horizontalement */
+  align-items: center; /* Centrez verticalement les éléments dans le conteneur */
+}
 
-.navbar {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 0;
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .navbar li {
-    margin-right: 20px;
-  }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .navbar a:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
+.logo {
+  max-width: 25%; /* Limitez la largeur maximale à 100% de la largeur du conteneur parent */
+  max-height: 100px; /* Réglez la hauteur maximale en fonction de vos besoins */
+  width: auto; /* Laissez la largeur automatique pour conserver le rapport hauteur/largeur d'origine */
+  height: auto; /* Laissez la hauteur automatique pour conserver le rapport hauteur/largeur d'origine */
+  margin-right: 10px; /* Espacement à droite de l'image pour séparer du texte */
+}
+
+.logo-text {
+  font-size: 20px; /* Taille de police du texte */
+  font-weight: bold; /* Texte en gras (si nécessaire) */
+}
+.login{
+  font-size: 20px; /* Taille de police du texte */
+  font-weight: bold; /* Texte en gras (si nécessaire) */
+}
+
+.spacer{
+  flex:1;
+}
+
+.bonhomme {
+  max-width: 50px; /* Réglez la largeur maximale en fonction de vos besoins */
+  max-height: 100px; /* Réglez la hauteur maximale en fonction de vos besoins */
+  width: auto;
+  height: auto;
+  margin-right: 10px; /* Espacement à droite de l'image du bonhomme */
+}
+
+
+
+
+
+
+

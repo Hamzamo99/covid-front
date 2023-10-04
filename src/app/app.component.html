@@ -1,14 +1,17 @@
-<!-- app.component.html -->
+<mat-toolbar color="primary">
+  <span class="logo-container" routerLink="/public/centres">
+    <img src="assets/images/vaccin.png" alt="Vaccine-App" class="logo"/>
+    <span class="logo-text">Vaccine-App</span>
+  </span>
+  <span class="spacer"></span>
+  <button class="login" mat-button *ngIf="!isLoggedIn" (click)="logout()">Logout</button>
+  <button class="login" mat-button *ngIf="isLoggedIn" routerLink="/login">Login</button>
+  <img src="assets/images/connexion.png" alt="Bonhomme" class="bonhomme" />
+</mat-toolbar>
 
-<div class="navbar">
-  <ul>
-    <li *ngIf="!isLoggedIn"><a (click)="logout()">Logout</a></li>
-    <li *ngIf="isLoggedIn"><a routerLink="/login">Login</a></li>
-    <li *ngIf="isLoggedIn"><a routerLink="/public/centres">Accueil</a></li>
-  </ul>
-</div>
 
 <router-outlet></router-outlet>
+
 
 
 
