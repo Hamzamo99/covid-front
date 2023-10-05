@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { AdminsParCentreComponent } from './admins-par-centre/admins-par-centre.component';
 import { MedecinsParCentreComponent } from './medecins-par-centre/medecins-par-centre.component';
 import { ListeDesSuperAdminsComponent } from './liste-des-super-admins/liste-des-super-admins.component';
+import { ListeInscriptionsCentreComponent } from './liste-inscriptions-centre/liste-inscriptions-centre.component';
+import { MedecinSearchComponent } from './medecin-search/medecin-search.component';
 
 
 const routes: Routes = [
@@ -14,6 +16,14 @@ const routes: Routes = [
   { path: 'administrateurs/centre/:id', component: AdminsParCentreComponent },
   { path: 'medecins/centre/:id', component: MedecinsParCentreComponent},
   ////////////////////////////////////////////////////////////////
+  {
+    path: 'centre/:id/inscriptions',
+    component: ListeInscriptionsCentreComponent
+  },
+  {
+    path: 'inscriptions/centre/:id',
+    component: MedecinSearchComponent
+  },
   { path: 'superadmin/centres',component: ListeDesCentresComponent },
   { path: 'public/centres',component: CentreSearchComponent },
   { path: '', redirectTo: 'public/centres', pathMatch: 'full' },

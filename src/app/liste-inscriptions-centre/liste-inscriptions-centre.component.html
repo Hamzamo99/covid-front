@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>Liste des Inscriptions</h2>
+    <ul>
+      <li *ngFor="let inscription of inscriptions" class="centre-item">
+        <!-- Affichez les détails de l'inscription -->
+        <h3>{{ inscription.nom }} {{ inscription.prenom }}</h3>
+        <p>Email: {{ inscription.email }}</p>
+        <p>Téléphone: {{ inscription.telephone }}</p>
+        <button (click)="supprimerInscription(inscription)">Supprimer</button>
+      </li>
+    </ul>
+  </div>
+  

@@ -42,7 +42,7 @@ export class LoginComponent {
       // Vous pouvez également gérer la connexion en utilisant un service d'authentification
       // Mettez à jour le statut de connexion et redirigez l'utilisateur vers une page appropriée
       // (par exemple, la page de profil)
-      this.router.navigate(['/superadmin/centres']);
+      this.router.navigate(['inscriptions/centre/1']);
     }   
     else  {
       const errorMessage = "Mot de passe ou login incorrect";

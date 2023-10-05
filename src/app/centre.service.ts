@@ -21,7 +21,27 @@ export class CentreService {
   private superAdminAdminUrl = 'api/admin/superadmin/administrateur'; //URL pour la gestion des Admins par les SuperAdmins
   private centreUrl = 'api/public/centres';
 
+  private apiUrl = '/api/admin/administrateur';
+  private inscUrl = '/api/admin/medecin'
+  
+
   constructor(private http: HttpClient) { }
+
+  getInscriptionsByNom(nom: string): Observable<Inscription[]> {
+    const url = `${this.inscUrl}/rechercherPersonne?nom=${nom}`;
+    return this.http.get<Inscription[]>(url);
+  }
+
+  // Méthode pour récupérer les inscriptions liées à un centre en utilisant l'ID du centre
+  getInscriptionsByCentreId(centreId: number): Observable<Inscription[]> {
+    const url = `api/admin/administrateur/inscription?centreId=${centreId}`; // Assurez-vous d'ajuster l'URL selon votre structure d'API
+    return this.http.get<Inscription[]>(url);
+  }
+  // Méthode pour supprimer une inscription par son ID
+  supprimerInscription(inscriptionId: number): Observable<void> {
+    const url = `${this.apiUrl}/inscription/${inscriptionId}`;
+    return this.http.delete<void>(url);
+  }
 
   getAllCentres(): Observable<Centre[]> {
     return this.http.get<Centre[]>(this.superAdminCentreUrl);

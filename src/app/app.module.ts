@@ -22,6 +22,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatDialogModule} from '@angular/material/dialog';
+import { ListeInscriptionsCentreComponent } from './liste-inscriptions-centre/liste-inscriptions-centre.component';
+import { MedecinSearchComponent } from './medecin-search/medecin-search.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { MatDialogModule} from '@angular/material/dialog';
     MedecinsParCentreComponent,
     ListeDesSuperAdminsComponent,
     SuccessPopupComponent,
+    ListeInscriptionsCentreComponent,
+    MedecinSearchComponent,
   ],
   imports: [
     BrowserModule,

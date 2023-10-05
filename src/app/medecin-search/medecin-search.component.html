@@ -1,0 +1,24 @@
+<div class="mat-form-container">
+    <h2>Rechercher une personne par son nom :</h2>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="nom" placeholder="Entrez le nom de la personne">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="searchPersonnes()">Rechercher</button>
+  </div>
+  
+  <div *ngIf="inscriptions.length > 0">
+    <h2>Liste des inscriptions pour {{ nom }} :</h2>
+    <ul class="personne-list">
+      <li *ngFor="let inscription of inscriptions">
+        <!-- Affichez les détails de l'inscription -->
+        <h3>{{ inscription.nom }} {{ inscription.prenom }}</h3>
+        <p>Email: {{ inscription.email }}</p>
+        <p>Téléphone: {{ inscription.telephone }}</p>
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="inscriptions.length === 0">
+    <h2>Aucune inscription trouvée pour {{ nom }}</h2>
+  </div>
+  

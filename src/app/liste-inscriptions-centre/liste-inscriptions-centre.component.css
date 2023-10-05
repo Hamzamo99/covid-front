@@ -1,0 +1,72 @@
+/* Style pour le conteneur principal du composant */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour chaque élément de la liste des inscriptions */
+.centre-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour le nom de l'inscription */
+.centre-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* Style pour les paragraphes */
+.centre-item p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Style pour la liste des inscriptions vide */
+.empty-list {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* Style pour le formulaire de création de centre */
+.centre-form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour les boutons */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+/* Supprimer les puces de la liste */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  

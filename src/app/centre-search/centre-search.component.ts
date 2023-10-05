@@ -20,6 +20,7 @@ export class CentreSearchComponent {
   centres: Centre[] = [];
   inscriptionFormVisible: boolean = false;
   inscriptionData: Inscription = {
+    id: 0, 
     nom: '',
     prenom: '',
     email: '',
@@ -27,9 +28,11 @@ export class CentreSearchComponent {
     dateInscription: '',
     centre: { id: 0 }
   };
+  
 
   constructor(private centreService: CentreService,private dialog: MatDialog) {
     this.inscriptionData = {
+      id: 0, 
       nom: '',
       prenom: '',
       email: '',
@@ -99,6 +102,7 @@ export class CentreSearchComponent {
     // Réinitialisez le formulaire après soumission
     this.inscriptionFormVisible = false;
     this.inscriptionData = {
+      id: 0, 
       nom: '',
       prenom: '',
       email: '',
@@ -112,6 +116,7 @@ export class CentreSearchComponent {
     this.inscriptionFormVisible = false;
     // Réinitialiser les données du formulaire si nécessaire
     this.inscriptionData = {
+      id: 0, 
       nom: '',
       prenom: '',
       email: '',

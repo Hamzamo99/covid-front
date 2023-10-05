@@ -2,6 +2,11 @@
 <div class="container">
     <h2>Liste des Médecins</h2>
     <button (click)="afficherFormulaireCreationMedecin()">Créer un Nouveau Medecin pour ce centre</button>
+    <!-- <a [routerLink]="['/administrateurs', 'centre', centre.id]">Afficher les inscriptions liées à ce centre</a> -->
+    <!-- centre-detail.component.html (ou tout autre modèle où vous souhaitez afficher ce bouton) -->
+
+    <button (click)="afficherInscriptionsCentre()">Afficher les inscriptions liées à ce centre</button>
+
 
     <!-- Utilisez *ngIf pour conditionnellement afficher le formulaire de création -->
     <form *ngIf="afficherFormulaireCreation" (submit)="creerMedecin()">

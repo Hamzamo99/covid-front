@@ -1,8 +1,8 @@
 // medecins-par-centre.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Medecin } from '../medecin.model';
 import { CentreService } from '../centre.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-medecins-par-centre',
@@ -22,7 +22,7 @@ export class MedecinsParCentreComponent implements OnInit {
     centre: { id: 0 }
   };
 
-  constructor(private centreService: CentreService, private route: ActivatedRoute) {}
+  constructor(private centreService: CentreService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -112,6 +112,11 @@ export class MedecinsParCentreComponent implements OnInit {
 
   afficherFormulaireCreationMedecin(): void {
     this.afficherFormulaireCreation = true;
+  }
+
+  afficherInscriptionsCentre(): void {
+    // Naviguer vers la page des inscriptions liées à ce centre en utilisant le centreId
+    this.router.navigate(['/centre', this.centreId, 'inscriptions']);
   }
 
 }
