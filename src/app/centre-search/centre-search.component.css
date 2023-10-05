@@ -46,6 +46,22 @@ mat-list-item button.mat-raised-button {
   display: inline; /* Force l'affichage en ligne du texte */
   margin-right: 10px; /* Ajuste la marge à droite pour l'espacement */
 }
+.messageVide{
+  display: flex;
+  justify-content: center;
+}
+h3{
+  font-size: 15px;
+}
+/* Dans votre fichier CSS ou dans une balise <style> */
+.cancel-button {
+  margin: 10px; /* Ajustez la valeur en pixels selon l'espace souhaité */
+}
+
+
+
+
+
 
 
 

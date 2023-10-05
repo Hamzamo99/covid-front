@@ -9,12 +9,13 @@ import { ListeDesSuperAdminsComponent } from './liste-des-super-admins/liste-des
 
 
 const routes: Routes = [
-  { path: 'superadmin/centres',component: ListeDesCentresComponent },
   { path: 'superadmins', component: ListeDesSuperAdminsComponent },
-  { path: 'public/centres',component: CentreSearchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'administrateurs/centre/:id', component: AdminsParCentreComponent },
   { path: 'medecins/centre/:id', component: MedecinsParCentreComponent},
+  ////////////////////////////////////////////////////////////////
+  { path: 'superadmin/centres',component: ListeDesCentresComponent },
+  { path: 'public/centres',component: CentreSearchComponent },
   { path: '', redirectTo: 'public/centres', pathMatch: 'full' },
 ];
 

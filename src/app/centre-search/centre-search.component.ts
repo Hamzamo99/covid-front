@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { CentreService } from '../centre.service';
 import { Centre } from '../centre.model';
 import { Inscription } from '../inscription.model';
+import { SuccessPopupComponent } from '../success-popup/success-popup.component';
+import { MatDialog } from '@angular/material/dialog';
+
+
 
 @Component({
   selector: 'app-centre-search',
@@ -24,7 +28,7 @@ export class CentreSearchComponent {
     centre: { id: 0 }
   };
 
-  constructor(private centreService: CentreService) {
+  constructor(private centreService: CentreService,private dialog: MatDialog) {
     this.inscriptionData = {
       nom: '',
       prenom: '',
@@ -78,6 +82,12 @@ export class CentreSearchComponent {
         (response) => {
           // Gérer la réponse de l'API (par exemple, afficher un message de succès)
           console.log('Inscription réussie !', response);
+          // Après le traitement réussi du formulaire
+          this.successMessage = 'Votre inscription à été soumise avec succès';
+          // Après le traitement réussi du formulaire
+          const dialogRef = this.dialog.open(SuccessPopupComponent, {
+            data: { successMessage: this.successMessage }
+          });
           this.showSuccessPopup('L\'inscription s\'est bien passée !'); // Afficher la pop-up de succès
         },
         (error) => {
@@ -96,6 +106,19 @@ export class CentreSearchComponent {
       dateInscription: '',
       centre: { id: 0 }
     };
+  }
+  // Dans votre composant TypeScript
+  annulerInscription() {
+    this.inscriptionFormVisible = false;
+    // Réinitialiser les données du formulaire si nécessaire
+    this.inscriptionData = {
+      nom: '',
+      prenom: '',
+      email: '',
+      telephone: '',
+      dateInscription: '',
+      centre: { id: 0 }
+      };
   }
 }
 

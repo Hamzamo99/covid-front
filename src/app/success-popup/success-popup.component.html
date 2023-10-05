@@ -1,8 +1,10 @@
-<div class="success-popup" [@slideInOut]="successMessage ? 'visible' : 'hidden'">
-    <h2>Succès</h2>
-    <p>{{ successMessage }}</p>
-    <button (click)="onClose()">Fermer</button>
-  </div>
+<div class="success-popup" [@slideInOut]="'visible'">
+  <h2 class="mat-h2">Succès</h2>
+  <p class="mat-body-1">{{ successMessage }}</p>
+  <button mat-raised-button color="primary" (click)="onClose()">Fermer</button>
+</div>
+
+
   
   
   

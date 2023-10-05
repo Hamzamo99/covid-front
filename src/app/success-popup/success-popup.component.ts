@@ -1,5 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-success-popup',
@@ -8,11 +10,12 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
     trigger('slideInOut', [
       state('hidden', style({
-        transform: 'translateY(100%)',
+        transform: 'translateY(100%)', // Pour masquer verticalement
         display: 'none'
       })),
       state('visible', style({
-        transform: 'translateY(0)',
+        transform: 'translateY(0) translateX(-50%)', // Pour centrer verticalement et légèrement vers la gauche
+        left: '50%', // Ajustement supplémentaire pour centrer horizontalement
         display: 'block'
       })),
       transition('hidden => visible', animate('300ms ease-in')),
@@ -20,13 +23,21 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ])
   ]
 })
+
 export class SuccessPopupComponent {
-  @Input() successMessage: string | null = null; // Message de succès reçu en entrée
-  @Output() closePopup = new EventEmitter<void>();
+  successMessage: string | null = null; // Message de succès reçu en entrée
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: { successMessage: string | null },
+    public dialogRef: MatDialogRef<SuccessPopupComponent>
+  ) {
+    this.successMessage = data.successMessage;
+  }
 
   onClose() {
-    this.closePopup.emit(); // Émettre l'événement de fermeture du pop-up
+    this.dialogRef.close(); // Fermer la popup en utilisant le dialogRef
   }
 }
+
 
 

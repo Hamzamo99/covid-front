@@ -12,30 +12,33 @@ import { SuperAdmin } from './superadmin.model';
 })
 export class CentreService {
 
-  private apiUrl = '/api/superadmin/centres';
-  private baseUrl = '/api/public/centres';
-  private inscriptionUrl = '/api/public/inscriptions';
-  private adminUrl = '/api/superadmin/administrateurs'; // URL pour les administrateurs
-  private medecinUrl = 'api/admin/medecins';
-  private superAdminUrl = 'api/superadmins';
+  
+  //////////////////////////////////////////////////////////////////////////////////////
+  private inscriptionUrl = '/api/public/inscriptions'; //URl d'inscription des gens
+  private medecinUrl = 'api/admin/administrateur/medecin'; //URL pour la gestion des medecins (CRU) par des administrateurs
+  private superAdminCentreUrl = '/api/admin/superadmin/centre'; //URL pour la gestion des centres par les SuperAdmins
+  private superAdminUrl = 'api/admin/superadmin'; //URL pour la gestion des SuperAdmins par les SuperAdmins
+  private superAdminAdminUrl = 'api/admin/superadmin/administrateur'; //URL pour la gestion des Admins par les SuperAdmins
+  private centreUrl = 'api/public/centres';
 
   constructor(private http: HttpClient) { }
 
   getAllCentres(): Observable<Centre[]> {
-    return this.http.get<Centre[]>(this.apiUrl);
+    return this.http.get<Centre[]>(this.superAdminCentreUrl);
   }
+
   getAllSuperAdmins(): Observable<SuperAdmin[]> {
     return this.http.get<SuperAdmin[]>(this.superAdminUrl);
   }
 
   getCentresByVille(ville: string): Observable<any[]> {
-    const url = `${this.baseUrl}?ville=${ville}`;
+    const url = `${this.centreUrl}?ville=${ville}`;
     return this.http.get<any[]>(url);
   }
 
   creerCentre(nouveauCentre: Centre): Observable<Centre> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<Centre>(this.apiUrl, nouveauCentre, { headers });
+    return this.http.post<Centre>(this.superAdminCentreUrl, nouveauCentre, { headers });
   }
 
   creerSuperAdmin(nouveauSuperAdmin: SuperAdmin): Observable<SuperAdmin> {
@@ -44,7 +47,7 @@ export class CentreService {
   }
 
   supprimerCentre(id: number): Observable<void> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.superAdminCentreUrl}/${id}`;
     return this.http.delete<void>(url);
   }
 
@@ -54,7 +57,7 @@ export class CentreService {
   }
 
   modifierCentre(id: number, centre: Centre): Observable<Centre> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.superAdminCentreUrl}/${id}`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put<Centre>(url, centre, { headers });
   }
@@ -67,7 +70,7 @@ export class CentreService {
 
   // Méthode pour obtenir les administrateurs par ID de centre
   getAdminsByCentreId(centreId: number): Observable<Administrateur[]> {
-    const url = `${this.adminUrl}/centre/${centreId}`;
+    const url = `${this.superAdminAdminUrl}/centre/${centreId}`;
     return this.http.get<Administrateur[]>(url);
   }
 
@@ -84,12 +87,12 @@ export class CentreService {
 
   creerMedecin(nouvelMedecin: Medecin): Observable<Medecin> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<Medecin>('/api/admin/medecins', nouvelMedecin, { headers });
+    return this.http.post<Medecin>('api/admin/administrateur/medecin', nouvelMedecin, { headers });
   }
 
   creerAdministrateur(nouvelAdministrateur: Administrateur): Observable<Administrateur> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<Administrateur>('/api/superadmin/administrateurs', nouvelAdministrateur, { headers });
+    return this.http.post<Administrateur>('/api/admin/superadmin/administrateur', nouvelAdministrateur, { headers });
   }
 
   effacerMedecin(medecinId: number): Observable<void> {
@@ -98,7 +101,7 @@ export class CentreService {
   }
 
   effacerAdministrateur(adminId: number): Observable<void> {
-    const url = `${this.adminUrl}/${adminId}`; // Utilisez this.adminUrl pour la route des administrateurs
+    const url = `${this.superAdminAdminUrl}/${adminId}`; // Utilisez this.adminUrl pour la route des administrateurs
     return this.http.delete<void>(url);
   }
 
@@ -121,7 +124,7 @@ export class CentreService {
   
 
   modifierAdministrateur(id: number, administrateurModifie: Administrateur): Observable<Administrateur> {
-    const url = `${this.adminUrl}/${id}`;
+    const url = `${this.superAdminAdminUrl}/${id}`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   
     // Assurez-vous que le champ 'centre' est un objet avec une propriété 'id'

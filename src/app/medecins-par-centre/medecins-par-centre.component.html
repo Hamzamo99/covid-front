@@ -24,7 +24,6 @@
         <h3>{{ medecin.nom }} {{ medecin.prenom }}</h3>
         <p>Email: {{ medecin.email }}</p>
         <p>Téléphone: {{ medecin.telephone }}</p>
-        <button (click)="effacerMedecin(medecin)">Effacer</button>
         <button (click)="modifierMedecin(medecin)">Modifier</button>
         <!-- Formulaire de modification (affiché lorsque administrateurEnModification correspond à l'administrateur en cours de modification) -->
         <div *ngIf="medecinEnModification && medecinEnModification.id === medecin.id" class="formulaire-modification">

@@ -72,18 +72,6 @@ export class MedecinsParCentreComponent implements OnInit {
     );
   }
   
-  effacerMedecin(medecin: Medecin): void {
-    if (confirm(`Voulez-vous vraiment effacer le medecin ${medecin.nom} ${medecin.prenom}?`)) {
-      this.centreService.effacerMedecin(medecin.id).subscribe(
-        () => {
-          this.medecins = this.medecins.filter(a => a.id !== medecin.id);
-        },
-        (error: any) => {
-          console.error('Erreur lors de la suppression du medecin :', error);
-        }
-      );
-    }
-  }
 
   modifierMedecin(medecin: Medecin): void {
     if (medecin) {

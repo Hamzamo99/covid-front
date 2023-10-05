@@ -2,6 +2,9 @@
 
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { SuccessPopupComponent } from '../success-popup/success-popup.component';
+
 
 @Component({
   selector: 'app-login',
@@ -14,18 +17,46 @@ export class LoginComponent {
     password: ''
   };
 
-  constructor(private router: Router) {}
+  errorMessage: string | null = null;
+
+  constructor(private router: Router,private dialog: MatDialog) {}
 
   onSubmit() {
     // Vérifiez les informations d'identification de l'utilisateur
-    if (this.user.email === 'test' && this.user.password === 'test') {
+    if (this.user.email === 'super' && this.user.password === 'super') {
       // Connexion réussie
       // Vous pouvez également gérer la connexion en utilisant un service d'authentification
       // Mettez à jour le statut de connexion et redirigez l'utilisateur vers une page appropriée
       // (par exemple, la page de profil)
       this.router.navigate(['/superadmin/centres']);
-    } else {
-      // Affichez un message d'erreur ou effectuez d'autres actions en cas d'échec de la connexion
     }
+    else if (this.user.email === 'admin' && this.user.password === 'admin') {
+      // Connexion réussie
+      // Vous pouvez également gérer la connexion en utilisant un service d'authentification
+      // Mettez à jour le statut de connexion et redirigez l'utilisateur vers une page appropriée
+      // (par exemple, la page de profil)
+      this.router.navigate(['medecins/centre/1']);
+    } 
+    else if (this.user.email === 'medecin' && this.user.password === 'medecin') {
+      // Connexion réussie
+      // Vous pouvez également gérer la connexion en utilisant un service d'authentification
+      // Mettez à jour le statut de connexion et redirigez l'utilisateur vers une page appropriée
+      // (par exemple, la page de profil)
+      this.router.navigate(['/superadmin/centres']);
+    }   
+    else  {
+      const errorMessage = "Mot de passe ou login incorrect";
+    
+      // Ouvrir la popup d'erreur avec le message d'erreur
+      const dialogRef = this.dialog.open(SuccessPopupComponent, {
+        data: { successMessage: errorMessage }
+      });
+    
+      // Fermer la popup lorsque l'utilisateur clique sur "Fermer"
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('La popup d\'erreur a été fermée', result);
+      });
+    }
+    
   }
 }

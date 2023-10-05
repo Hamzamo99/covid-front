@@ -1,36 +1,30 @@
-/* success-popup.component.css */
+/* success-popup.component.css/* success-popup.component.css */
 
 .success-popup {
-    background-color: #f8f8f8;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 14px;
-  }
-  
-  .success-popup h2 {
-    color: #007bff;
-    font-size: 16px;
-  }
-  
-  .success-popup p {
-    margin: 0;
-  }
-  
-  .success-popup button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 6px 12px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .success-popup button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Si nécessaire, vous pouvez également définir des styles pour d'autres éléments du pop-up */
-  
-  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  z-index: 1000; /* Ajustez le z-index selon les besoins */
+  width: 300px; /* Ajustez la largeur selon les besoins */
+  border-radius: 20px;
+}
+
+.success-popup h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.success-popup p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.success-popup button {
+  display: block;
+  margin: 0 auto;
+}
