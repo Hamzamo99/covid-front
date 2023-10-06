@@ -8,10 +8,11 @@ import { MedecinsParCentreComponent } from './medecins-par-centre/medecins-par-c
 import { ListeDesSuperAdminsComponent } from './liste-des-super-admins/liste-des-super-admins.component';
 import { ListeInscriptionsCentreComponent } from './liste-inscriptions-centre/liste-inscriptions-centre.component';
 import { MedecinSearchComponent } from './medecin-search/medecin-search.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
-  { path: 'superadmins', component: ListeDesSuperAdminsComponent },
+  { path: 'superadmins', component: ListeDesSuperAdminsComponent , canActivate :[AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'administrateurs/centre/:id', component: AdminsParCentreComponent },
   { path: 'medecins/centre/:id', component: MedecinsParCentreComponent},
